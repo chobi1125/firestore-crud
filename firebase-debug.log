@@ -1,0 +1,48 @@
+[debug] [2020-06-26T01:06:02.186Z] ----------------------------------------------------------------------
+[debug] [2020-06-26T01:06:02.188Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\chonm\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-06-26T01:06:02.188Z] CLI Version:   8.2.0
+[debug] [2020-06-26T01:06:02.188Z] Platform:      win32
+[debug] [2020-06-26T01:06:02.188Z] Node Version:  v12.14.1
+[debug] [2020-06-26T01:06:02.190Z] Time:          Fri Jun 26 2020 10:06:02 GMT+0900 (GMT+09:00)
+[debug] [2020-06-26T01:06:02.191Z] ----------------------------------------------------------------------
+[debug] [2020-06-26T01:06:02.191Z] 
+[debug] [2020-06-26T01:06:02.201Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-26T01:06:02.202Z] > authorizing via signed-in user
+[debug] [2020-06-26T01:06:02.202Z] [iam] checking project macircle-sns for permissions ["firebase.projects.get"]
+[debug] [2020-06-26T01:06:02.206Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/macircle-sns:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-06-26T01:06:03.781Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 26 Jun 2020 01:06:03 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=574","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-26T01:06:03.785Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/macircle-sns  
+ 
+[debug] [2020-06-26T01:06:04.906Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 26 Jun 2020 01:06:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from 'C:\xampp\htdocs\firestore-sheet'...
+[info] 
+[debug] [2020-06-26T01:06:04.911Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/macircle-sns/webApps/-/config  
+ 
+[debug] [2020-06-26T01:06:06.456Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 26 Jun 2020 01:06:06 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: dist
+[info] +  hosting: Local server: http://localhost:5000
+[warn] !  Your requested "node" version "8" doesn't match your global version "12"
+[info] +  functions: functions emulator started at http://localhost:5001
+[info] i  functions: Watching "C:\xampp\htdocs\firestore-sheet\functions" for Cloud Functions...
+[debug] [2020-06-26T01:06:06.967Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-06-26T01:06:06.967Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-06-26T01:06:06.967Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-06-26T01:06:06.967Z] [worker-~diagnostic~-0cc5c640-752f-42b2-9a3a-e0fecb844cda]: Assigning socketPath: \\?\pipe\C:\xampp\htdocs\firestore-sheet\functions\19144 
+[debug] [2020-06-26T01:06:06.968Z] [worker-~diagnostic~-0cc5c640-752f-42b2-9a3a-e0fecb844cda]: BUSY 
+[debug] [2020-06-26T01:06:07.611Z] [runtime-status] [19144] Functions runtime initialized. {"cwd":"C:\\xampp\\htdocs\\firestore-sheet\\functions","node_version":"12.14.1"} 
+[debug] [2020-06-26T01:06:07.613Z] [runtime-status] [19144] Disabled runtime features: undefined 
+[debug] [2020-06-26T01:06:07.618Z] [runtime-status] [19144] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"C:\\xampp\\htdocs\\firestore-sheet\\functions\\node_modules\\firebase-admin\\lib\\index.js"} 
+[debug] [2020-06-26T01:06:07.621Z] [runtime-status] [19144] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.7.0","resolution":"C:\\xampp\\htdocs\\firestore-sheet\\functions\\node_modules\\firebase-functions\\lib\\index.js"} 
+[debug] [2020-06-26T01:06:07.625Z] [runtime-status] [19144] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-06-26T01:06:07.707Z] [runtime-status] [19144] Checked functions.config() {"config":{}} 
+[debug] [2020-06-26T01:06:07.708Z] [runtime-status] [19144] Error in handleMessage: {"frb":{"cwd":"C:\\xampp\\htdocs\\firestore-sheet\\functions","projectId":"macircle-sns","triggerId":"","emulators":{},"socketPath":"\\\\?\\pipe\\C:\\xampp\\htdocs\\firestore-sheet\\functions\\19144"},"opts":{"nodeBinary":"C:\\Program Files\\nodejs\\node.exe"}} => TypeError: Cannot set property config of #<Object> which has only a getter: TypeError: Cannot set property config of #<Object> which has only a getter
+    at C:\Users\chonm\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:455:19
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\chonm\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:94:5) 
+[warn] !  functions: Cannot set property config of #<Object> which has only a getter
+[warn] !  Your function was killed because it raised an unhandled error.
+[debug] [2020-06-26T01:06:07.727Z] [worker-~diagnostic~-0cc5c640-752f-42b2-9a3a-e0fecb844cda]: exited 
+[debug] [2020-06-26T01:06:07.728Z] [worker-~diagnostic~-0cc5c640-752f-42b2-9a3a-e0fecb844cda]: FINISHED 

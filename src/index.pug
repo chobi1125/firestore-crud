@@ -1,6 +1,5 @@
 -
-  const ttl = "第18回 スタジオ管理シート"
-  let song_list = ["君と夏フェス(10月まで)","ソラニン(10月まで)","青い栞","スターフィッシュ","刃","瞬間センチメンタル","C7"]
+  const ttl = "firestoreのCRUDテスト"
 
 doctype
 html(lang="ja")
@@ -10,92 +9,26 @@ html(lang="ja")
     title #{ttl}
     link(rel="stylesheet" href="css/style.css")
   body
-    h1.ly.ly-title #{ttl}
-    header.ly.ly-header
-      button#changeBtn(onclick="changeFC()") 管理シート
-      .login-btn
-        button#loginBtn.display-inline(onclick="loginFC()") ログイン
-        button#logoutBtn.display-none(onclick="logoutFC()") ログアウト
-      p.supplement-message#supplement-message ※ログインすると登録後の編集が可能です。みんなの負担減！
+    header
+      .l
+        h1 #{ttl}
     main
-      #form.display-block
-        .ly
-          p お名前
-          span#validateMessageName.display-none ※必須です
-          span#validateOverlapName.display-none ※名前が被っているので別の名前で入力お願いします！
-          input#userName.username-input(type="text" placeholder="名前を入力してください")
-          select#rootSelect.display-none
-            option(value="") 選択
+      .l
+        p 各種テストボタン
+        button(onclick="getDB()") 取得
+        button(onclick="getUniqueDB()") 一意取得
+        button(onclick="addDB()") 追加
+        button(onclick="updateDB()") 更新
+        button(onclick="whereDB()") 検索
+        button(onclick="deleteDB()") 削除
+      .l
+        p#process 表示
+        div#result
 
-        .ly.ly-check-song
-          span#validateMessageCheck.display-none ※チェック必須です
-          ul.flex.ul-head
-            li.li-title 課題曲
-            li.li-category Vo
-            li.li-category Gt<br><span style="font-size:10px;">(Lead)<span>
-            li.li-category Gt<br><span style="font-size:10px;">(Side)<span>
-            li.li-category Ba
-            li.li-category Dr
-          #songCheckboxAll
-            each song,key in song_list 
-              ul.flex.ul-body.checkbox-size
-                li.li-title #{song} 
-                input(type="checkbox" id=`vo${key}`)
-                input(type="checkbox" id=`gtLead${key}`)
-                input(type="checkbox" id=`gtSide${key}`)
-                input(type="checkbox" id=`ba${key}`)
-                input(type="checkbox" id=`dr${key}`)
-            ul.flex.checkbox-size.ul-body
-              li.li-title 見学 
-              input#visiter(type="checkbox").single-checkbox
-            ul.flex.checkbox-size.ul-body
-              li.li-title 初参加 
-              input#first_time(type="checkbox").single-checkbox
-          div.crud-btn
-            button#addBtn(onclick="addFC()") 送信
-            button#editBtn.display-none(onclick="editFC()") 更新
-            button#removeBtn.display-none(onclick="removeFC()") 取消
-            button#rootEditBtn.display-none(onclick="rootEditFC()") 更新(幹事)
-            button#rootRemoveBtn.display-none(onclick="rootRemoveFC()") 取消(幹事)
-            p.supplement-message.display-none#rootMessage ※選択ユーザーの編集(幹事権限)。<br>自身の編集は再度リロードして行ってください。<br>ログインして登録しているユーザーの削除はできません。
-      
 
-      //- ⭐⭐シート
-      #sheet.display-none
-        .ly
-          p#peopleNumber
-          table(border="1")
-            tr.thead
-              td.td-title 課題曲
-              td.td-width Vo
-              td.td-width Gt<br><span style="font-size:10px;">(Lead)<span>
-              td.td-width Gt<br><span style="font-size:10px;">(Side)<span>
-              td.td-width Ba
-              td.td-width Dr
-            each song,key in song_list             
-              tr
-                td.song-column #{song}
-                td(id=`sheet_vo${key}`)
-                td(id=`sheet_gtLead${key}`)
-                td(id=`sheet_gtSide${key}`)
-                td(id=`sheet_ba${key}`)
-                td(id=`sheet_dr${key}`)
-          p 見学者
-          span#sheet_visiter
-          p 初参加
-          span#sheet_first_time
-          div#accounting.display-none
-            p 会計
-            p#accountingText.light-text
-
-    script(src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js")
-    script(src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js")
-    script(src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js")
-    script(src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js")
+    script(src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js")
+    script(src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js")
+    script(src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js")
+    script(src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js")
     script(src="js/firebase/init.js")
-    script(src="js/firebase/auth.js")
-    script(src="js/firebase/database.js")
     script(src="js/index.js")
-    script(src="js/validate.js")
-    script(src="js/sheet.js")
-    script(src="js/root.js")

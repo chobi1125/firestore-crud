@@ -3,63 +3,74 @@ let q = e => document.querySelector(e);
 let l = e => console.log(e);
 let el = e => document.createElement(e);
 
-// HTMLより取得した要素の変数定義
-let change_btn = $("changeBtn");
-let add_btn = $("addBtn");
-let edit_btn = $("editBtn");
-let remove_btn = $("removeBtn");
-let root_edit_btn = $("rootEditBtn");
-let root_remove_btn = $("rootRemoveBtn");
-let login_btn = $("loginBtn");
-let logout_btn = $("logoutBtn");
-let user_name = $("userName");
-let people_number = $("peopleNumber");
-let root_select = $("rootSelect");
-let form = $("form");
-let sheet = $("sheet");
-let validate_message_name = $("validateMessageName");
-let validate_overlap_name = $("validateOverlapName");
-let validate_message_check = $("validateMessageCheck");
-let song_checkbox_all = $("songCheckboxAll");
-let supplement_message = $("supplement-message");
-let root_message = $("rootMessage");
-let sheet_visiter = $("sheet_visiter");
-let first_time = $("first_time");
-let accounting = $("accounting");
-let accounting_text = $("accountingText");
+let process = $("process");
+let result = $("result");
+let result_array = [];
 
-// js処理のための変数定義
-let checkbox_array = [];
-let root_check_array = [];
-let all_checkbox = document.querySelectorAll("input[type='checkbox']");
-
-// フォームと管理シートの切り替え
-let changeFC = () => {
-  if (form.className === "display-block"){
-    form.className = "display-none";
-    sheet.className = "display-block"
-    change_btn.textContent = "フォーム"
-  } else {
-    form.className = "display-block";
-    sheet.className = "display-none"
-    change_btn.textContent = "管理シート"
-  }
+let getDB = () => {
+  db.collection("users").get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        console.log(doc.id);
+        console.log(doc.data());
+        result_array.push(doc.id);
+      });
+      process.textContent = "取得";
+      result.textContent = result_array;
+    })
+  // result.textContent = `ID:${doc.id} data:${doc.data()}`; 
 }
 
-// DBに追加するIDタグの配列生成
-song_checkbox_all.addEventListener('change', (event) => {
-  let eventElem = event.target;
-  // チェックが入って、かつ配列になかった場合
-  if (eventElem.checked === true && checkbox_array.indexOf(eventElem.id) === -1) {
-    console.log("push")
-    checkbox_array.push(eventElem.id);
-  }
-  // チェックが外れた場合
-  if (eventElem.checked === false ) {
-    let delKey = checkbox_array.indexOf(eventElem.id);
-    checkbox_array.splice(delKey,1);
-  }
-  checkValidateMessageNone();
-  l("change");
-});
+let getUniqueDB = () => {
+  console.log("getUniqueDB");
+  db.collection("users").doc("1").get().then((snapshot) => {
+    console.log(snapshot)
+    console.log(snapshot.id);
+    console.log(snapshot.data());
+  })
+}
 
+let whereDB = () => {
+  console.log("whereDB");
+  db.collection("users").where("name","==","masaru").get().then((snapshot) => {
+    snapshot.forEach((doc) => {
+      console.log(doc.id);
+      console.log(doc.data());
+    })
+  })
+}
+
+let addDB = () => {
+  console.log("addDB");
+  db.collection("users").add({
+    name: "ちょび",
+    id:"guitar"
+  }).then((docRef) => {
+    console.log(docRef.id);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}
+
+let updateDB = () => {
+  console.log("updateDB");
+  db.collection("users").doc("1").set({
+    name: "ちょび",
+  }).then(() => {
+    console.log("更新成功");
+  })
+  .catch((error) => {
+    console.error("Error writing document: ", error);
+  })
+}
+
+let deleteDB = () => {
+  console.log("deleteDB");
+  db.collection("users").doc("1").delete().then(() => {
+    console.log("削除成功");
+  })
+  .catch((error) => {
+    console.error("Error writing document: ", error);
+  })
+}

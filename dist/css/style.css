@@ -1,5 +1,59 @@
 @charset "UTF-8";
 /*
+ベースグループ
+*/
+* {
+  padding: 0;
+  margin: 0;
+  word-wrap: break-word; }
+
+body {
+  color: black;
+  background-color: rgba(255, 195, 104, 0.313);
+  margin: 0 auto;
+  font-family: sans-serif;
+  max-width: 90%; }
+  @media screen and (min-width: 500px) {
+    body {
+      max-width: 60%; } }
+  @media screen and (min-width: 700px) {
+    body {
+      max-width: 40%; } }
+  @media screen and (min-width: 1024px) {
+    body {
+      max-width: 30%; } }
+
+header {
+  padding-top: 20px; }
+
+h1 {
+  font-size: 1.5em; }
+
+p {
+  font-weight: bold;
+  padding-bottom: 5px; }
+
+button {
+  font-size: 12px;
+  padding: 5px 8px;
+  background-color: rgba(204, 123, 0, 0.891);
+  color: #fff;
+  border-style: none;
+  border-radius: 5px;
+  width: 75px;
+  height: 30px;
+  margin-bottom: 10px; }
+
+/*
+  レイアウトグループ
+*/
+.l {
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px 20px;
+  margin-bottom: 10px; }
+
+/*
   汎用
 */
 .display-block {
@@ -16,139 +70,3 @@
   justify-content: space-between;
   list-style-type: none;
   padding: 0; }
-
-/*
-  ベースグループ
-*/
-body {
-  color: black;
-  background-color: rgba(255, 195, 104, 0.313);
-  margin: 0 auto;
-  font-family: sans-serif;
-  max-width: 90%; }
-
-p {
-  font-weight: bold; }
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  body {
-    max-width: 40%; } }
-
-@media screen and (min-width: 1024px) {
-  body {
-    max-width: 30%; } }
-
-button {
-  font-size: 12px;
-  padding: 5px 8px;
-  background-color: rgba(204, 123, 0, 0.891);
-  color: #fff;
-  border-style: none;
-  border-radius: 5px;
-  width: 75px;
-  height: 30px; }
-
-header button {
-  width: 80px; }
-
-/*
-  レイアウトグループ
-*/
-.ly {
-  background-color: white;
-  border-radius: 5px;
-  padding: 5px;
-  margin-bottom: 10px; }
-
-.ly-title {
-  font-size: 22px; }
-
-.ly-check-song {
-  margin-bottom: 30px; }
-
-/*
-  モジュールグループ
-*/
-.login-btn {
-  float: right; }
-
-.name-select {
-  height: 23px;
-  width: 100px; }
-
-.crud-btn > button {
-  margin-right: 15px; }
-
-/*
-  チェックボックス関連
-*/
-.username-input {
-  font-size: 15px; }
-
-.ul-head li {
-  font-weight: bold; }
-
-.ul-head .li-category {
-  width: 35px; }
-
-.li-title {
-  width: 52px;
-  padding: 0 5px; }
-
-.ul-body {
-  background-color: rgba(209, 209, 209, 0.129);
-  padding: 5px 0;
-  border-radius: 5px; }
-  .ul-body li {
-    font-size: 12px;
-    padding: 5px; }
-  .ul-body input {
-    margin: auto; }
-  .ul-body .single-checkbox {
-    margin-right: 232px; }
-
-ul input {
-  transform: scale(1.5); }
-
-/*
-  シート関連
-*/
-table {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 10px;
-  table-layout: fixed;
-  word-wrap: break-word; }
-  table .td-title {
-    width: 60px; }
-  table .td-width {
-    width: 50px; }
-  table .thead {
-    font-weight: bold;
-    background-color: rgba(255, 184, 77, 0.231); }
-  table .song-column {
-    font-weight: bold;
-    background-color: rgba(255, 184, 77, 0.054); }
-  table p {
-    margin: 0;
-    font-weight: lighter; }
-
-/*
-  文字&バリデーション関連
-*/
-.supplement-message {
-  color: rgba(0, 0, 0, 0.421);
-  font-size: 10px; }
-
-.validate-message {
-  color: red;
-  font-size: 12px; }
-
-span p {
-  font-size: 12px;
-  font-weight: lighter;
-  margin: 0; }
-
-.light-text {
-  font-size: 12px;
-  font-weight: lighter; }
